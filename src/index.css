@@ -1,0 +1,1051 @@
+:root {
+  --text-color: white;
+  --error-color: rgb(253, 30, 30);
+  --primary-color: rgb(42, 42, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+.master-card {
+  max-width: 3.8rem;
+  position: absolute;
+  z-index: 2;
+  top: 4.8rem;
+  right: 1rem;
+  text-align: center;
+}
+
+.master-card p {
+  font-size: 5px;
+  text-transform: uppercase;
+  font-style: italic;
+  margin-top: -4px;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 1.4px solid var(--primary-color);
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.over-lay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9;
+}
+
+.close {
+  font-size: 2rem;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transform: rotate(45deg);
+  z-index: 9;
+}
+
+body {
+  background-color: rgb(241, 241, 241);
+  color: #141414;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+/* Header */
+
+.header {
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.header > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  color: var(--primary-color);
+}
+
+.header-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-icon img {
+  margin-right: 0.4rem;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  width: 95%;
+}
+
+/* Select Card */
+.select-card {
+  position: relative;
+
+  max-width: 600px;
+  width: 95%;
+}
+
+.select-card-btn {
+  margin: 1rem auto;
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  outline: none;
+  display: block;
+  color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.option {
+  z-index: 20;
+  position: absolute;
+  top: 3rem;
+}
+
+.option .btn {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s;
+  display: block;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+/* Card */
+
+.card-container {
+  width: 85%;
+  max-width: 400px;
+  display: block;
+  color: white;
+  margin: auto;
+  z-index: 12;
+}
+
+.card-front,
+.card-back {
+  transform-style: preserve-3d;
+  transition: transform 1.3s ease-in;
+  position: relative;
+  z-index: 20;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  z-index: 9;
+  transform: rotateY(180deg);
+  backface-visibility: visible;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.reverse-flip {
+  transform: rotateY(0);
+}
+
+.card-bg {
+  display: block;
+  position: absolute;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+.card-item {
+  position: absolute;
+  z-index: 8;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.card-item > div:first-child {
+  display: grid;
+  grid-gap: 0.3rem;
+  grid-template-columns: 1fr;
+}
+
+.card-item > div:last-child {
+  display: grid;
+
+  grid-gap: 0.3rem;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.chip-debit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-number-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 420px;
+  width: 100%;
+  margin-left: 0.4rem;
+}
+
+.name-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.debit {
+  font-size: 10px;
+}
+
+.card-expire-date {
+  font-size: 7px;
+  display: flex;
+  align-items: center;
+}
+
+.card-expire-date p:first-child {
+  margin-right: 0.4rem;
+}
+
+.card-expire-date p:last-child {
+  font-size: 10px;
+}
+
+.card-number-container > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -0.2rem;
+}
+
+.number-initial {
+  font-size: 7px;
+}
+
+.card-number {
+  font-size: 1.4rem;
+  margin-bottom: -0.4rem;
+  height: 2.7rem;
+  width: 100%;
+
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.bank-logo {
+  width: 74px;
+  justify-self: right;
+}
+
+.chip {
+  width: 35px;
+  display: block;
+}
+
+.card-holder-name {
+  font-size: 13px;
+}
+
+.visa-logo {
+  width: 55px;
+}
+
+/* Back of card */
+
+.tel {
+  font-size: 0.45rem;
+}
+
+.black {
+  height: 1.8rem;
+  background-color: black;
+}
+
+.auth {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.auth p:first-child {
+  font-size: 0.4rem;
+  text-transform: uppercase;
+}
+
+.auth p:last-child {
+  font-size: 0.38rem;
+}
+
+.white {
+  height: 1.3rem;
+  background-color: var(--text-color);
+  color: #141414;
+  font-size: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 160px;
+}
+
+.three-digit {
+  margin-right: 0.4rem;
+  font-style: italic;
+}
+
+.description {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.4rem;
+  font-size: 0.3rem;
+  margin-top: 0.7rem;
+  width: 100%;
+}
+
+.description > p:last-child {
+  font-size: 0.4rem;
+  align-self: flex-end;
+}
+
+.download {
+  font-size: 0.4rem;
+  border-left: 1px solid var(--text-color);
+  padding-left: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.laptop {
+  width: 1.3rem;
+}
+
+.phone {
+  width: 0.9rem;
+}
+
+/* Form */
+
+.form-group {
+  display: grid;
+  grid-gap: 0.5rem;
+  padding: 1rem;
+  max-width: 600px;
+  width: 95%;
+  margin: 4rem auto 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-detail:first-child {
+  margin-top: 5rem;
+}
+
+.form-control {
+  position: relative;
+  padding-top: 0.8rem;
+}
+
+.error {
+  color: var(--primary-color);
+}
+
+.box {
+  border: none;
+  outline: none;
+  padding: 0.3rem 0;
+  width: 100%;
+  border-bottom: 2px solid #141414;
+  transition: border-bottom 400ms;
+}
+
+label {
+  position: absolute;
+  top: 0.8rem;
+  left: 0;
+  pointer-events: none;
+  transition: top 400ms;
+}
+
+.box:focus + label,
+.box:valid + label {
+  top: -0.3rem;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.incorrect {
+  top: -0.3rem;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.box:focus,
+.box:valid {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+@media screen and (min-width: 340px) {
+  /* card front */
+
+  .debit {
+    font-size: 12px;
+  }
+
+  .card-number-container > div {
+    margin-top: 0.1rem;
+  }
+
+  .card-expire-date {
+    font-size: 7px;
+  }
+
+  .card-expire-date p:first-child {
+    margin-right: 0.4rem;
+  }
+
+  .card-expire-date p:last-child {
+    font-size: 12px;
+  }
+
+  .number-initial {
+    font-size: 11px;
+  }
+
+  .card-number {
+    font-size: 1.6rem;
+    justify-self: flex-start;
+  }
+
+  .bank-logo {
+    width: 80px;
+  }
+
+  .chip {
+    width: 40px;
+  }
+
+  .card-holder-name {
+    font-size: 14px;
+  }
+
+  .visa-logo {
+    width: 60px;
+  }
+
+  .form-detail:first-child {
+    margin-top: 6rem;
+  }
+
+  /* Master Card icon */
+  .master-card {
+    max-width: 4rem;
+    position: absolute;
+    z-index: 2;
+    top: 4.8rem;
+    right: 1rem;
+  }
+
+  .master-card p {
+    font-size: 5px;
+    text-transform: uppercase;
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* Back of form */
+
+  .tel {
+    font-size: 7px;
+  }
+
+  .black {
+    height: 2rem;
+  }
+
+  .auth p:first-child {
+    font-size: 6px;
+  }
+
+  .auth p:last-child {
+    font-size: 5px;
+  }
+
+  .white {
+    height: 1.3rem;
+    font-size: 0.8rem;
+    width: 160px;
+  }
+
+  .three-digit {
+    margin-right: 0.4rem;
+    font-size: 8px;
+  }
+
+  .description {
+    font-size: 0.4rem;
+    margin-top: 0.7rem;
+    width: 100%;
+  }
+
+  .description > p:last-child {
+    font-size: 0.5rem;
+  }
+
+  .download {
+    font-size: 0.4rem;
+    padding-left: 0.4rem;
+  }
+
+  .laptop {
+    width: 1.5rem;
+  }
+
+  .phone {
+    width: 1rem;
+  }
+}
+
+@media screen and (min-width: 360px) {
+  /* Form */
+
+  .debit {
+    font-size: 12px;
+  }
+
+  .card-expire-date {
+    font-size: 8px;
+  }
+
+  .card-expire-date p:first-child {
+    margin-right: 0.4rem;
+  }
+
+  .card-expire-date p:last-child {
+    font-size: 12px;
+  }
+
+  .number-initial {
+    font-size: 10px;
+  }
+
+  .card-number {
+    font-size: 1.7rem;
+  }
+
+  .bank-logo {
+    width: 85px;
+  }
+
+  .chip {
+    width: 45px;
+  }
+
+  .card-holder-name {
+    font-size: 15px;
+  }
+
+  .visa-logo {
+    width: 65px;
+  }
+
+  .form-detail:first-child {
+    margin-top: 180px;
+  }
+
+  .form-detail:first-child {
+    margin-top: 7rem;
+  }
+
+  /* Master Card Icon */
+  .master-card {
+    max-width: 4rem;
+    top: 5.7rem;
+  }
+}
+
+@media screen and (min-width: 380px) {
+  /* Form */
+  .form-group {
+    margin: 6rem auto 0;
+  }
+
+  .debit {
+    font-size: 12px;
+  }
+
+  .card-expire-date {
+    font-size: 8px;
+  }
+
+  .card-expire-date p:first-child {
+    margin-right: 0.4rem;
+  }
+
+  .card-expire-date p:last-child {
+    font-size: 12px;
+  }
+
+  .number-initial {
+    font-size: 10px;
+  }
+
+  .card-number {
+    font-size: 1.7rem;
+  }
+
+  .bank-logo {
+    width: 85px;
+  }
+
+  .chip {
+    width: 45px;
+  }
+
+  .card-holder-name {
+    font-size: 15px;
+  }
+
+  .visa-logo {
+    width: 65px;
+  }
+
+  .form-detail:first-child {
+    margin-top: 180px;
+  }
+
+  .form-detail:first-child {
+    margin-top: 8rem;
+  }
+
+  /* MAster Card Icon */
+
+  .master-card {
+    max-width: 4.8rem;
+    top: 5.3rem;
+  }
+
+  .master-card p {
+    font-size: 6px;
+  }
+
+  /* Back of phone */
+
+  .tel {
+    font-size: 0.51rem;
+  }
+
+  .black {
+    height: 2.3rem;
+  }
+
+  .auth p:first-child {
+    font-size: 0.5rem;
+  }
+
+  .auth p:last-child {
+    font-size: 0.38rem;
+  }
+
+  .white {
+    height: 1.7rem;
+    font-size: 0.5rem;
+    width: 180px;
+  }
+
+  .three-digit {
+    margin-right: 0.4rem;
+    font-style: italic;
+  }
+
+  .description {
+    grid-gap: 0.4rem;
+    font-size: 0.379rem;
+    margin-top: 0.7rem;
+  }
+
+  .description > p:last-child {
+    font-size: 0.5rem;
+  }
+
+  .download {
+    font-size: 0.4rem;
+  }
+
+  .laptop {
+    width: 1.5rem;
+  }
+
+  .phone {
+    width: 1rem;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  /* Form */
+  .form-group {
+    margin: 8rem auto 0;
+  }
+
+  /* card front */
+
+  .debit {
+    font-size: 12px;
+  }
+
+  .card-number-container > div {
+    margin-top: 0.2rem;
+  }
+
+  .card-expire-date {
+    font-size: 9px;
+  }
+
+  .card-expire-date p:first-child {
+    margin-right: 0.8rem;
+  }
+
+  .card-expire-date p:last-child {
+    font-size: 14px;
+  }
+
+  .number-initial {
+    font-size: 11px;
+  }
+
+  .card-number {
+    font-size: 1.8rem;
+    justify-self: flex-start;
+  }
+
+  .bank-logo {
+    width: 100px;
+  }
+
+  .chip {
+    width: 50px;
+  }
+
+  .card-holder-name {
+    font-size: 16px;
+  }
+
+  .visa-logo {
+    width: 70px;
+  }
+
+  .form-detail:first-child {
+    margin-top: 180px;
+  }
+
+  .form-detail:first-child {
+    margin-top: 9rem;
+  }
+
+  /* Master Card Icon */
+
+  .master-card {
+    max-width: 5.3rem;
+    top: 5.5rem;
+  }
+
+  .master-card p {
+    font-size: 7px;
+  }
+
+  /* Back of form */
+
+  .tel {
+    font-size: 0.6rem;
+  }
+
+  .black {
+    height: 3rem;
+  }
+
+  .auth p:first-child {
+    font-size: 0.5rem;
+  }
+
+  .auth p:last-child {
+    font-size: 0.4rem;
+  }
+
+  .white {
+    height: 2rem;
+    font-size: 0.8rem;
+    width: 200px;
+  }
+
+  .three-digit {
+    margin-right: 0.4rem;
+  }
+
+  .description {
+    font-size: 0.4rem;
+    margin-top: 1.3rem;
+    width: 100%;
+  }
+
+  .description > p:last-child {
+    font-size: 0.5rem;
+  }
+
+  .download {
+    font-size: 0.4rem;
+    padding-left: 0.4rem;
+  }
+
+  .laptop {
+    width: 1.5rem;
+  }
+
+  .phone {
+    width: 1rem;
+  }
+}
+
+@media screen and (min-width: 390px) {
+  .description {
+    margin-top: 1.6rem;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 430px) {
+  .description {
+    margin-top: 1.8rem;
+    width: 100%;
+  }
+
+  /* Master Card Icon */
+
+  .master-card {
+    max-width: 5.4rem;
+    top: 6.4rem;
+  }
+
+  .master-card p {
+    font-size: 8px;
+  }
+
+  .form-detail:first-child {
+    margin-top: 10rem;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .tel {
+    font-size: 10px;
+  }
+
+  .black {
+    height: 2.9rem;
+  }
+
+  .auth p:first-child {
+    font-size: 0.5rem;
+  }
+
+  .auth p:last-child {
+    font-size: 0.4rem;
+  }
+
+  .white {
+    height: 2.2rem;
+    font-size: 0.8rem;
+    width: 200px;
+  }
+
+  .three-digit {
+    margin-right: 0.4rem;
+  }
+
+  .description {
+    font-size: 7px;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  .description > p:last-child {
+    font-size: 9px;
+  }
+
+  .download {
+    font-size: 7px;
+    padding-left: 0.4rem;
+  }
+
+  .laptop {
+    width: 1.8rem;
+  }
+
+  .phone {
+    width: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 470px) {
+  /* Form */
+  .form-group {
+    margin: 7rem auto 0;
+  }
+
+  /* card front */
+
+  .debit {
+    font-size: 12px;
+  }
+
+  .card-number-container > div {
+    margin-top: 0.6rem;
+  }
+
+  .card-expire-date {
+    font-size: 9px;
+  }
+
+  .card-expire-date p:first-child {
+    margin-right: 0.8rem;
+  }
+
+  .card-expire-date p:last-child {
+    font-size: 14px;
+  }
+
+  .number-initial {
+    font-size: 11px;
+  }
+
+  .card-number {
+    font-size: 2rem;
+    justify-self: flex-start;
+  }
+
+  .bank-logo {
+    width: 120px;
+  }
+
+  .chip {
+    width: 55px;
+  }
+
+  .card-holder-name {
+    font-size: 18px;
+  }
+
+  .visa-logo {
+    width: 90px;
+  }
+
+  .form-detail:first-child {
+    margin-top: 180px;
+  }
+
+  /* Back of form */
+
+  .tel {
+    font-size: 11px;
+  }
+
+  .black {
+    height: 3.4rem;
+  }
+
+  .auth p:first-child {
+    font-size: 8px;
+  }
+
+  .auth p:last-child {
+    font-size: 7px;
+  }
+
+  .white {
+    height: 2.2rem;
+    font-size: 12px;
+    width: 200px;
+  }
+
+  .three-digit {
+    margin-right: 0.4rem;
+  }
+
+  .description {
+    font-size: 8px;
+    margin-top: 1.3rem;
+    width: 100%;
+  }
+
+  .description > p:last-child {
+    font-size: 10px;
+  }
+
+  .download {
+    font-size: 8px;
+    padding-left: 0.4rem;
+  }
+
+  .laptop {
+    width: 2rem;
+  }
+
+  .phone {
+    width: 1.6rem;
+  }
+
+  /* Master card icon */
+  .master-card {
+    max-width: 6rem;
+    position: absolute;
+    z-index: 2;
+    top: 6rem;
+    right: 1rem;
+  }
+
+  .master-card p {
+    font-size: 8px;
+    text-transform: uppercase;
+    font-style: italic;
+    margin-top: 2px;
+  }
+}
