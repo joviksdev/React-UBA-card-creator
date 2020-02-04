@@ -1,7 +1,7 @@
 # React UBA Card Creator App
 
 ## The application consume React Context API to manage it state.
-** Clone or Download this **
+** Clone or Download this ** <br />
 While in the project directory, you can run:
 
 ### `npm start`
