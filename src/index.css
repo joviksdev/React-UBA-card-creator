@@ -80,8 +80,9 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 input[type='number'] {
-  -moz-appearance: textfield;
+  -moz-appearance: date;
 }
+
 body {
   background-color: rgb(241, 241, 241);
   color: #141414;
