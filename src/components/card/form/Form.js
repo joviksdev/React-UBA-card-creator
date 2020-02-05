@@ -172,7 +172,7 @@ const Form = () => {
       <div className='form-control'>
         <input
           style={user.error.cardNumberError && setBorderColor(user.cardNumber)}
-          type='text'
+          type='number'
           name='cardNumber'
           className='number box input-field'
           required
@@ -192,7 +192,7 @@ const Form = () => {
       <div className='form-control'>
         <input
           style={user.error.expireDateError && setBorderColor(user.expireDate)}
-          type='text'
+          type='number'
           name='expireDate'
           className='date box input-field'
           required
@@ -215,7 +215,7 @@ const Form = () => {
       <div className='form-control'>
         <input
           style={user.error.backDigitError && setBorderColor(user.backDigit)}
-          type='text'
+          type='number'
           name='backDigit'
           className='three-digit-number input-field box'
           required
