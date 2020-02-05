@@ -23,7 +23,7 @@ const Form = () => {
 
   // Check For input
 
-  const input = (name, value) => {
+  let input = (name, value) => {
     let error = '';
 
     // Card Holder Name
@@ -48,6 +48,7 @@ const Form = () => {
           };
         }
       });
+      value = value.slice(0, 16);
     }
 
     // Expire Date
@@ -79,6 +80,8 @@ const Form = () => {
           [name + 'Error']: true
         };
       }
+
+      value = value.slice(0, 5);
     }
 
     // Back Detail
@@ -92,6 +95,7 @@ const Form = () => {
           };
         }
       });
+      value = value.slice(0, 4);
     }
 
     setUser({ ...user, [name]: value, error });
@@ -192,7 +196,7 @@ const Form = () => {
       <div className='form-control'>
         <input
           style={user.error.expireDateError && setBorderColor(user.expireDate)}
-          type='number'
+          type='text'
           name='expireDate'
           className='date box input-field'
           required
@@ -216,6 +220,7 @@ const Form = () => {
         <input
           style={user.error.backDigitError && setBorderColor(user.backDigit)}
           type='number'
+          max='3'
           name='backDigit'
           className='three-digit-number input-field box'
           required
