@@ -72,6 +72,16 @@ img {
   z-index: 9;
 }
 
+/* Remove arrow in form */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
 body {
   background-color: rgb(241, 241, 241);
   color: #141414;
